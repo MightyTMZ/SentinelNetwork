@@ -18,6 +18,9 @@ class CustomUser(AbstractUser):
         # Add this to avoid clashes with auth.User model
         swappable = 'AUTH_USER_MODEL'
 
+    def __str__(self) -> str:
+        return f"{self.first_name} {self.last_name} - {self.email}"
+
 # Add related names to avoid clashes with auth.User model
 CustomUser._meta.get_field('groups').remote_field.related_name = 'custom_user_groups'
 CustomUser._meta.get_field('user_permissions').remote_field.related_name = 'custom_user_permissions'

@@ -22,8 +22,8 @@ class Report(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.PROTECT)
     title = models.CharField(max_length=255)
     description = models.TextField(max_length=10000)
-    images = models.ManyToManyField(Image)
-    videos = models.ManyToManyField(Video)
+    images = models.ManyToManyField(Image, blank=True)
+    videos = models.ManyToManyField(Video, blank=True)
     visible = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
 
