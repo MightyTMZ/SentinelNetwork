@@ -10,13 +10,14 @@ from users.models import CustomUser
 
 class Video(models.Model):
     title = models.CharField(max_length=2083)
-    file = models.FileField(upload_to='videos/', validators=[FileExtensionValidator(allowed_extensions=['mp4', 'avi'])])
+    file = models.FileField(upload_to='media/videos/', validators=[FileExtensionValidator(allowed_extensions=['mp4', 'avi'])])
 
 
 class Image(models.Model):
     title = models.CharField(max_length=2083)
-    file = models.FileField(upload_to='images/', validators=[FileExtensionValidator(allowed_extensions=['jpg', 'png', '.webp'])])
+    file = models.ImageField(upload_to='media/images/', validators=[FileExtensionValidator(allowed_extensions=['jpg', 'png', '.webp'])])
 
+    # make sure to install pillow
 
 class Report(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.PROTECT)

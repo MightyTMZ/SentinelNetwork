@@ -23,6 +23,7 @@ admin.site.site_header = "Sentinel Network Admin"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("communication/", include("communication.urls")),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
 ]
